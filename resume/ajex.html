@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <form action="" method="post">
+        <input type="text" id="num2"><br>
+        <input type="text" id="num3"><br>
+        <input type="text" id="num4"><br>
+        <input type="button" value="Result" id="click"><br>
+
+    </form>
+    <script>
+    $(document).ready(function(){
+      $("#click").click(function(){
+          var num2 = $("#num2").val();
+          var num3 = $("#num3").val();
+          var num4 = $("#num4").val();
+            $.ajax({
+                   type:"POST",
+                   url:"res.php",
+                   data:{'fn':num2,'ln':num3,'ph':num4},
+                   success:function(response)
+                   {
+                                if(response ==0)
+                                {
+                                    alert("Inseted Succesfully.");
+                                }
+                                else
+                                {
+                                    alert("Something goes wrong. please contact your system admin.");
+                                }
+                   }
+            });
+      });
+
+
+
+
+    });
+      
+    </script>
+     
+</body>
+</html>
